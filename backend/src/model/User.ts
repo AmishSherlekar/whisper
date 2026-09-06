@@ -1,0 +1,2 @@
+import mongoose, {Schema, type Document} from "mongoose";
+
