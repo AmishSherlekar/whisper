@@ -10,13 +10,17 @@ export interface IChat extends Document {
 
 const ChatSchema = new Schema<IChat>(
   {
-    participants: [
-      {
+    participants: {
+      type: [{
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true,
+      }],
+      validate: {
+        validator: (value: unknown[]) => Array.isArray(value) && value.length > 0,
+        message: "A chat must include at least one participant",
       },
-    ],
+    },
     lastMessage: {
       type: Schema.Types.ObjectId,
       ref: "Message",
@@ -31,4 +35,3 @@ const ChatSchema = new Schema<IChat>(
 );
 
 export const Chat = mongoose.model("Chat", ChatSchema);
- 
