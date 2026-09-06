@@ -2,7 +2,8 @@ import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 import Animated, { Keyframe, Easing } from 'react-native-reanimated';
 
-import classes from './animated-icon.module.css';
+import classesRaw from './animated-icon.module.css';
+const classes = classesRaw as unknown as { [key: string]: string };
 const DURATION = 300;
 
 export function AnimatedSplashOverlay() {
