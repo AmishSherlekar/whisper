@@ -31,3 +31,4 @@ const ChatSchema = new Schema<IChat>(
 );
 
 export const Chat = mongoose.model("Chat", ChatSchema);
+ 
